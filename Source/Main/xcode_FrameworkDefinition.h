@@ -13,10 +13,12 @@
 
 @interface xcode_FrameworkDefinition : NSObject
 
+@property(nonatomic, assign, readonly) BOOL isSDKFramework; 
 @property(nonatomic, strong, readonly) NSString* filePath;
 @property(nonatomic, readonly) BOOL copyToDestination;
 
 - (id) initWithFilePath:(NSString*)filePath copyToDestination:(BOOL)copyToDestination;
+- (id) initWithFilePath:(NSString*)filePath copyToDestination:(BOOL)copyToDestination isSDK:(BOOL)sdk;
 
 - (NSString*) name;
 

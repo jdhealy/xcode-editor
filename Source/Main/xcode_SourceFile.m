@@ -90,8 +90,11 @@
     }
     LogDebug(@"Done becoming build file");
 }
-
-- (NSString*) sourcePath {
+-(BOOL)isFramework 
+{
+    return [self.displayName rangeOfString:@".framework"].location != NSNotFound;
+}
+- (NSString*) sourcePath {   
     return [[[_project groupForGroupMemberWithKey:_key] pathRelativeToProjectRoot]
             stringByAppendingPathComponent:_name];
 }

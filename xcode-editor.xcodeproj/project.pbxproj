@@ -69,7 +69,22 @@
 		6BE4B285147E6B610059E45F /* xcode_FrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4B285147E6B610059E45E /* xcode_FrameworkDefinition.m */; };
 		6BE4B285147E6B610059E460 /* xcode_FrameworkDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6BE4B285147E6B610059E45E /* xcode_FrameworkDefinition.m */; };
 		6BE4B285147E6B610059E462 /* xcode_FrameworkDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BE4B285147E6B610059E461 /* xcode_FrameworkDefinition.h */; };
+		B1F1628D152D5EEE00F6BAC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BC1018B1477A42F0055CF03 /* Foundation.framework */; };
+		B1F16290152D5EEE00F6BAC7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F1628F152D5EEE00F6BAC7 /* main.m */; };
+		B1F16294152D5EEE00F6BAC7 /* CalabashSetup.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = B1F16293152D5EEE00F6BAC7 /* CalabashSetup.1 */; };
+		B1F1629B152D5F0000F6BAC7 /* XcodeEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B3ACFE014F8A2FE00BCFE81 /* XcodeEditor.framework */; };
+		B1F162F5152D7FF900F6BAC7 /* CBCalabashSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F162F4152D7FF900F6BAC7 /* CBCalabashSetup.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1F16299152D5EF400F6BAC7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6BC10157147775A40055CF03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B3ACFDF14F8A2FE00BCFE81;
+			remoteInfo = XcodeEditor;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6BD1B46314EBAD0E00F5AD1C /* Copy Test Resources to /tmp */ = {
@@ -85,6 +100,16 @@
 			);
 			name = "Copy Test Resources to /tmp";
 			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1F16289152D5EEE00F6BAC7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				B1F16294152D5EEE00F6BAC7 /* CalabashSetup.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
@@ -148,6 +173,13 @@
 		6BE4B285147E6B610059E45C /* ESA.Sales.Foobar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ESA.Sales.Foobar.xib; sourceTree = "<group>"; };
 		6BE4B285147E6B610059E45E /* xcode_FrameworkDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xcode_FrameworkDefinition.m; sourceTree = "<group>"; };
 		6BE4B285147E6B610059E461 /* xcode_FrameworkDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xcode_FrameworkDefinition.h; sourceTree = "<group>"; };
+		B1F1628B152D5EEE00F6BAC7 /* CalabashSetup */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = CalabashSetup; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1F1628F152D5EEE00F6BAC7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B1F16292152D5EEE00F6BAC7 /* CalabashSetup-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalabashSetup-Prefix.pch"; sourceTree = "<group>"; };
+		B1F16293152D5EEE00F6BAC7 /* CalabashSetup.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = CalabashSetup.1; sourceTree = "<group>"; };
+		B1F162A0152D76B000F6BAC7 /* Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Helpers.h; sourceTree = "<group>"; };
+		B1F162F3152D7FF900F6BAC7 /* CBCalabashSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCalabashSetup.h; sourceTree = "<group>"; };
+		B1F162F4152D7FF900F6BAC7 /* CBCalabashSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCalabashSetup.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +200,15 @@
 				6B55223714EA723700494CF3 /* SenTestingKit.framework in Frameworks */,
 				6B55223814EA723700494CF3 /* Cocoa.framework in Frameworks */,
 				6B65941714F8A54400F65AEC /* libKiwi.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1F16288152D5EEE00F6BAC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1F1629B152D5F0000F6BAC7 /* XcodeEditor.framework in Frameworks */,
+				B1F1628D152D5EEE00F6BAC7 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +318,7 @@
 			children = (
 				6B65941214F8A53300F65AEC /* External */,
 				6BE4B285147E6B610059E44D /* Source */,
+				B1F1628E152D5EEE00F6BAC7 /* CalabashSetup */,
 				6BC10163147775A40055CF03 /* Frameworks */,
 				6BC10161147775A40055CF03 /* Products */,
 			);
@@ -287,6 +329,7 @@
 			children = (
 				6B55223614EA723700494CF3 /* Tests.octest */,
 				6B3ACFE014F8A2FE00BCFE81 /* XcodeEditor.framework */,
+				B1F1628B152D5EEE00F6BAC7 /* CalabashSetup */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,6 +369,27 @@
 				6B3AD01814F8A3AC00BCFE81 /* Main */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		B1F1628E152D5EEE00F6BAC7 /* CalabashSetup */ = {
+			isa = PBXGroup;
+			children = (
+				B1F1628F152D5EEE00F6BAC7 /* main.m */,
+				B1F16293152D5EEE00F6BAC7 /* CalabashSetup.1 */,
+				B1F16291152D5EEE00F6BAC7 /* Supporting Files */,
+				B1F162A0152D76B000F6BAC7 /* Helpers.h */,
+				B1F162F3152D7FF900F6BAC7 /* CBCalabashSetup.h */,
+				B1F162F4152D7FF900F6BAC7 /* CBCalabashSetup.m */,
+			);
+			path = CalabashSetup;
+			sourceTree = "<group>";
+		};
+		B1F16291152D5EEE00F6BAC7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1F16292152D5EEE00F6BAC7 /* CalabashSetup-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -393,6 +457,24 @@
 			productReference = 6B55223614EA723700494CF3 /* Tests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
+		B1F1628A152D5EEE00F6BAC7 /* CalabashSetup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1F16297152D5EEE00F6BAC7 /* Build configuration list for PBXNativeTarget "CalabashSetup" */;
+			buildPhases = (
+				B1F16287152D5EEE00F6BAC7 /* Sources */,
+				B1F16288152D5EEE00F6BAC7 /* Frameworks */,
+				B1F16289152D5EEE00F6BAC7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1F1629A152D5EF400F6BAC7 /* PBXTargetDependency */,
+			);
+			name = CalabashSetup;
+			productName = CalabashSetup;
+			productReference = B1F1628B152D5EEE00F6BAC7 /* CalabashSetup */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -416,6 +498,7 @@
 			targets = (
 				6B55223514EA723700494CF3 /* Tests */,
 				6B3ACFDF14F8A2FE00BCFE81 /* XcodeEditor */,
+				B1F1628A152D5EEE00F6BAC7 /* CalabashSetup */,
 			);
 		};
 /* End PBXProject section */
@@ -520,7 +603,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B1F16287152D5EEE00F6BAC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1F16290152D5EEE00F6BAC7 /* main.m in Sources */,
+				B1F162F5152D7FF900F6BAC7 /* CBCalabashSetup.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1F1629A152D5EF400F6BAC7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B3ACFDF14F8A2FE00BCFE81 /* XcodeEditor */;
+			targetProxy = B1F16299152D5EF400F6BAC7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6B3AD05214F8A3B400BCFE81 /* InfoPlist.strings */ = {
@@ -650,7 +750,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -676,7 +776,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -688,6 +788,38 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B1F16295152D5EEE00F6BAC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalabashSetup/CalabashSetup-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/Main";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Dependencies/Libraries\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B1F16296152D5EEE00F6BAC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalabashSetup/CalabashSetup-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Source/Main";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Dependencies/Libraries\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -717,6 +849,15 @@
 			buildConfigurations = (
 				6BC1017C147775A40055CF03 /* Debug */,
 				6BC1017D147775A40055CF03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1F16297152D5EEE00F6BAC7 /* Build configuration list for PBXNativeTarget "CalabashSetup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1F16295152D5EEE00F6BAC7 /* Debug */,
+				B1F16296152D5EEE00F6BAC7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

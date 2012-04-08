@@ -20,6 +20,17 @@
     return [[xcode_KeyBuilder alloc] initHashValueMD5HashWithBytes:[data bytes] length:[data length]];
 }
 
++ (xcode_KeyBuilder*) forDictionary:(NSDictionary*)dict {
+    NSString* salt = [[NSDate date] description];
+	NSMutableData *data = [[NSMutableData alloc] init];
+    [data appendData:[salt dataUsingEncoding:NSUTF8StringEncoding]];
+	NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
+	[archiver encodeObject:dict forKey:@"NSDictionary"];
+	[archiver finishEncoding];
+    return [[xcode_KeyBuilder alloc] initHashValueMD5HashWithBytes:[data bytes] length:[data length]];
+}
+
+
 /* ================================================== Initializers ================================================== */
 - (id) initHashValueMD5HashWithBytes:(const void*)bytes length:(NSUInteger)length {
     self = [super init];

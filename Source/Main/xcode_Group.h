@@ -103,6 +103,7 @@
 
 /* ================================================================================================================== */
 #pragma mark Locating children
+- (NSDictionary*) asDictionary;
 /**
  * Instances of `xcode_SourceFile` and `xcode_Group` returned as the type `XcodeGroupMember`.
 */

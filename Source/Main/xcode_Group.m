@@ -25,7 +25,7 @@
 
 - (void) flagMembersAsDirty;
 
-- (NSDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type;
+- (NSMutableDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type;
 
 - (void) referenceAndQueue:(NSString*)name contents:(NSString*)contents type:(XcodeSourceFileType)type;
 
@@ -104,7 +104,7 @@
         else {
             NSString* path = [frameworkDefinition filePath];
             NSString* name = [frameworkDefinition name];
-            fileReference = [self makeFileReferenceWithPath:path name:name type:Framework];
+            fileReference = [self makeFileReferenceWithPath:path name:name type:Framework isSDK:frameworkDefinition.isSDKFramework];
         }
         NSString* frameworkKey = [[KeyBuilder forItemNamed:[frameworkDefinition name]] build];
         [[_project objects] setObject:fileReference forKey:frameworkKey];
@@ -238,7 +238,13 @@
     [_writeQueue queueFile:name inDirectory:filePath withContents:contents];
 }
 
-- (NSDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type {
+- (NSDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type isSDK:(BOOL) sdk {
+    NSMutableDictionary *md = [self makeFileReferenceWithPath:path name:name type:type];
+    [md setObject:@"SDKROOT" forKey:@"sourceTree"];
+    return md;
+    
+}
+- (NSMutableDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type {
     NSMutableDictionary* reference = [[NSMutableDictionary alloc] init];
     [reference setObject:[NSString stringFromMemberType:PBXFileReference] forKey:@"isa"];
     [reference setObject:@"4" forKey:@"FileEncoding"];
@@ -261,7 +267,16 @@
     if (_alias != nil) {
         [groupData setObject:_alias forKey:@"name"];
     }
-    [groupData setObject:_pathRelativeToParent forKey:@"path"];
+    if (_pathRelativeToParent==nil)
+    {
+        [groupData setObject:[self pathRelativeToProjectRoot] forKey:@"path"];                        
+    }
+    else
+    {
+        [groupData setObject:_pathRelativeToParent forKey:@"path"];                
+    }
+
+    
     [groupData setObject:_children forKey:@"children"];
     return groupData;
 }

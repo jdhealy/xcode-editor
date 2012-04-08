@@ -53,7 +53,6 @@
 - (xcode_SourceFile*) fileWithName:(NSString*)name;
 
 
-
 /**
 * Returns all header files in the project, as an array of `xcode_SourceFile` objects.
 */
@@ -107,6 +106,11 @@
 * Returns the target with the specified name, or nil. 
 */
 - (xcode_Target*) targetWithName:(NSString*)name;
+
+/**
+ * Duplicates target and returns duplicated target. 
+ */
+- (xcode_Target*) duplicateTarget:(xcode_Target *)target withName:(NSString*)dupName;
 
 /* ================================================================================================================== */
 #pragma mark Saving

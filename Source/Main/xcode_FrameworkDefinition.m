@@ -13,6 +13,7 @@
 
 @implementation xcode_FrameworkDefinition
 
+@synthesize isSDKFramework = _sdkFramework;
 @synthesize filePath = _filePath;
 @synthesize copyToDestination = _copyToDestination;
 
@@ -22,6 +23,15 @@
     if (self) {
         _filePath = [filePath copy];
         _copyToDestination = copyToDestination;
+    }
+    return self;
+}
+- (id) initWithFilePath:(NSString*)filePath copyToDestination:(BOOL)copyToDestination isSDK:(BOOL)sdk
+{
+    self = [self initWithFilePath:filePath copyToDestination:copyToDestination];
+    if (self)
+    {
+        _sdkFramework = sdk;
     }
     return self;
 }
