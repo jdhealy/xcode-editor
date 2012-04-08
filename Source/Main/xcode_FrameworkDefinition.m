@@ -23,6 +23,7 @@
     if (self) {
         _filePath = [filePath copy];
         _copyToDestination = copyToDestination;
+        _sdkFramework = NO;
     }
     return self;
 }

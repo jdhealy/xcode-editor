@@ -21,7 +21,7 @@
 @interface xcode_SourceFile : NSObject<XcodeGroupMember> {
 
 @private
-    __weak xcode_Project* _project;
+    __unsafe_unretained xcode_Project* _project;
     NSNumber* _isBuildFile;
     NSString* _buildFileKey;
 }

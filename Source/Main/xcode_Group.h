@@ -28,7 +28,7 @@
 @private
     NSString* _pathRelativeToProjectRoot;
     NSMutableArray* _children;
-    __weak xcode_FileWriteQueue* _writeQueue;
+    __unsafe_unretained xcode_FileWriteQueue* _writeQueue;
     NSMutableArray* _members;
 }
 
@@ -37,7 +37,7 @@
 /**
  * The [Xcode project](xcode_Project) that this group belongs to.
 */
-@property(nonatomic, weak, readonly) xcode_Project* project;
+@property(nonatomic, unsafe_unretained, readonly) xcode_Project* project;
 
 /**
  * The alias of the group, which can be used to give the group a name other than the last path component.

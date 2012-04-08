@@ -13,9 +13,6 @@
 #import "xcode_Target.h"
 #import "Helpers.h"
 
-static NSString *PATH_TO_CALABASH  = @"/Users/krukow/github/calabash-ios-example/calabash.framework";
-
-
 @implementation CBCalabashSetup
 
 +(Target *)findTarget:(NSString *)defaultProjectName path:(NSString *)path inProject:(Project *)project
@@ -56,7 +53,7 @@ static NSString *PATH_TO_CALABASH  = @"/Users/krukow/github/calabash-ios-example
             OUT(@"input: %@",inputString);
             if (defaultTarget && [inputString length] == 0)
             {
-                OUT(@"Selecting default target (%@)", defaultTarget);
+                OUT(@"Selecting default target (%@)", defaultTarget.name);
             }
             else 
             {
@@ -78,7 +75,9 @@ static NSString *PATH_TO_CALABASH  = @"/Users/krukow/github/calabash-ios-example
         OUT(@"No target was selected. Aborting.");exit(EXIT_FAILURE);
     }
     
-    Target *target = [project duplicateTarget:defaultTarget withName:[NSString stringWithFormat:@"%@-cal",defaultTarget.name]];
+    NSString *targetName = [NSString stringWithFormat:@"%@-cal", defaultTarget.name];
+    OUT(@"Duplicating target: %@ to new target: %@",defaultTarget.name, targetName);
+    Target *target = [project duplicateTarget:defaultTarget withName:targetName];
     
     return target;
 }
@@ -114,10 +113,12 @@ static NSString *PATH_TO_CALABASH  = @"/Users/krukow/github/calabash-ios-example
         
     
     FrameworkDefinition* frameworkDefinition = 
-    [[FrameworkDefinition alloc] initWithFilePath:PATH_TO_CALABASH copyToDestination:YES];
+    [[FrameworkDefinition alloc] initWithFilePath:@"calabash.framework" copyToDestination:NO isSDK:NO];
     [group addFramework:frameworkDefinition toTargets:targets];
     
-        [project save];
-    OUT(@"%@", group);
+    OUT(@"Adding calabash.framework to target %@",target.name);
+    OUT(@"Adding Other Linker options to target %@",target.name);
+    [project save];
+    
 }
 @end

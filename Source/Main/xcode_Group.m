@@ -240,7 +240,10 @@
 
 - (NSDictionary*) makeFileReferenceWithPath:(NSString*)path name:(NSString*)name type:(XcodeSourceFileType)type isSDK:(BOOL) sdk {
     NSMutableDictionary *md = [self makeFileReferenceWithPath:path name:name type:type];
-    [md setObject:@"SDKROOT" forKey:@"sourceTree"];
+    if (sdk)
+    {
+        [md setObject:@"SDKROOT" forKey:@"sourceTree"];        
+    }
     return md;
     
 }

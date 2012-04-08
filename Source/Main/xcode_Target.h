@@ -22,7 +22,7 @@
     NSMutableArray* _members;
 }
 
-@property (nonatomic, weak, readonly) xcode_Project* project;
+@property (nonatomic, unsafe_unretained, readonly) xcode_Project* project;
 @property (nonatomic, strong, readonly) NSString* key;
 @property (nonatomic, strong, readonly) NSString* name;
 
