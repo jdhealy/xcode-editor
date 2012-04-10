@@ -193,9 +193,9 @@
     {
         [searchPaths addObject:@"$(inherited)"];
     }
-    if (![searchPaths containsObject:@"$(SRCROOT)"])
+    if (![searchPaths containsObject:@"$(SRCROOT)"] && ![searchPaths containsObject:@"\"$(SRCROOT)\""])
     {
-        [searchPaths addObject:@"$(SRCROOT)"];
+        [searchPaths addObject:@"\"$(SRCROOT)\""];
     }
     [buildSettings setObject:searchPaths forKey:@"FRAMEWORK_SEARCH_PATHS"];    
     
@@ -208,9 +208,9 @@
     {
         [lflags addObject:@"-force_load"];
     }
-    if (![lflags containsObject:@"$(SRCROOT)/calabash.framework/calabash"])
+    if (![lflags containsObject:@"$(SRCROOT)/calabash.framework/calabash"] && ![lflags containsObject:@"\"$(SRCROOT)/calabash.framework/calabash\""])
     {
-        [lflags addObject:@"$(SRCROOT)/calabash.framework/calabash"];
+        [lflags addObject:@"\"$(SRCROOT)/calabash.framework/calabash\""];
     }
     if (![lflags containsObject:@"-lstdc++"])
     {
