@@ -179,6 +179,7 @@
     }
     return nil;
 }
+
 -(NSString*)duplicateBuildConfWithKey:(NSString *)key
 {
     NSDictionary *bcl = [[self objects] objectForKey:key];
@@ -199,11 +200,19 @@
     }
     [buildSettings setObject:searchPaths forKey:@"FRAMEWORK_SEARCH_PATHS"];    
     
-    NSMutableArray *lflags = [[buildSettings objectForKey:@"OTHER_LDFLAGS"] mutableCopy];
-    if (lflags == nil)
+    id flags = [buildSettings objectForKey:@"OTHER_LDFLAGS"];
+    if (flags == nil)
     {
-        lflags = [NSMutableArray arrayWithCapacity:3];
+        flags = [NSMutableArray arrayWithCapacity:3];
     }
+    if ([flags isKindOfClass:[NSString class]])
+    {
+        flags = [NSArray arrayWithObject:(NSString*)flags];        
+    }//else Array
+
+    NSMutableArray *lflags = [flags mutableCopy];
+    
+    
     if (![lflags containsObject:@"-force_load"])
     {
         [lflags addObject:@"-force_load"];
@@ -273,7 +282,16 @@
     for (NSString *bf in [dupedDict objectForKey:@"buildPhases"])
     {
         NSMutableDictionary *bfDup = [[[self objects] objectForKey:bf] mutableCopy];
-        NSMutableArray *dupedFiles = [[bfDup objectForKey:@"files"] mutableCopy];
+        NSMutableArray *dupedFiles = [NSMutableArray array];
+        for (NSString *fid in [bfDup objectForKey:@"files"])
+        {
+            NSMutableDictionary *file = [[[self objects] objectForKey:fid] mutableCopy];
+            KeyBuilder* builder = [KeyBuilder forDictionary:file];
+            NSString *fileKey = [builder build];
+            [[self objects] setValue:file forKey:fileKey];
+            [dupedFiles addObject:fileKey];
+        }
+        
         [bfDup setObject:dupedFiles forKey:@"files"];
         KeyBuilder* builtKey = [KeyBuilder forDictionary:bfDup];
         NSString *buildPhaseKey = [builtKey build];
