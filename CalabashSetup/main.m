@@ -13,8 +13,8 @@ int main (int argc, const char * argv[])
 {
 
     @autoreleasepool {
-        NSString *defaultProjectName = [[NSString alloc] initWithCString:argv[2] encoding:NSASCIIStringEncoding];
-        NSString *path = [[NSString alloc] initWithCString:argv[1] encoding:NSASCIIStringEncoding];
+        NSString *defaultProjectName = [NSString stringWithUTF8String:argv[2]];
+        NSString *path = [NSString stringWithUTF8String:argv[1]];
         [CBCalabashSetup setupProject:defaultProjectName withPath:path];
 
     }
